@@ -1,15 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package FallenKings;
 
-/**
- *
- * @author Joree
- */
-public class Battle
+public class Battle 
 {
     
+    Enemy minion = new Enemy();
+    public void battle(Character mainChar)
+    {
+      if (minion.getFloor() == 1)
+      {
+        while (minion.getCountDown() > 0)
+        {
+            minion.genMinion(1);
+        }
+        if (minion.getCountDown() == 0)
+        {
+            minion.genBoss();
+        }
+      }
+}
 }

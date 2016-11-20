@@ -45,7 +45,7 @@ class Equipment extends Enemy
       reward = rando.nextInt(14) + 1;
       if ((reward > 0) || (reward < 16))
       {
-         if ((floor == 1) || (floor !=1 && ((reward > 0) && (reward < 5) )))
+         if ((getFloor() == 1) || (getFloor() !=1 && ((reward > 0) && (reward < 5) )))
          {
             System.out.println("You have picked up the " + armor1 + ". This item can block 2 damage. Do you want to equip it?");
             String choice, choice2;
@@ -58,10 +58,10 @@ class Equipment extends Enemy
             if ( choice2 == "yes")
             {
                mainChar.setArmor(armor1);
-               armorDefence = 2;
+               mainChar.armorDefence = 2;
             }
          } 
-         if ((floor == 2) || (floor == 3))
+         if ((getFloor() == 2) || (getFloor() == 3))
          {
             String choice, choice2;
             if ((reward > 4) && (reward < 11 ) )
@@ -77,7 +77,7 @@ class Equipment extends Enemy
                if ( choice2 == "yes")
                {
                   mainChar.setArmor(armor2);
-                  armorDefence = 3;
+                  mainChar.armorDefence = 3;
                }
             }
              
@@ -93,7 +93,7 @@ class Equipment extends Enemy
                if ( choice2 == "yes")
                {
                   mainChar.setArmor(armor3);
-                  armorDefence = 5;
+                  mainChar.armorDefence = 5;
                }
             }
             if (reward == 15 )
@@ -108,7 +108,7 @@ class Equipment extends Enemy
                if ( choice2 == "yes")
                {
                   mainChar.setArmor(armor4);
-                  armorDefence = 8;
+                  mainChar.armorDefence = 8;
                }
             }
          }
@@ -124,7 +124,7 @@ class Equipment extends Enemy
       {
          if ((mainChar.getFighterClass()) == "Longsword" )
          { 
-            if ((floor == 1) || (floor !=1 && ((reward > 15) && (reward < 28) )))
+            if ((getFloor() == 1) || (getFloor() !=1 && ((reward > 15) && (reward < 28) )))
             {
                System.out.println("You have picked up the " + weaponLS1 + ". This item can deal  8 damage. Do you want to equip it?");
                String choice, choice2;
@@ -137,10 +137,10 @@ class Equipment extends Enemy
                if ( choice2 == "yes")
                {
                   mainChar.setWeapon(weaponLS1);
-                  weaponDamage = 8;
+                  mainChar.weaponDamage = 8;
                }
             }
-            if ((floor == 2) || (floor == 3))
+            if ((getFloor() == 2) || (getFloor() == 3))
             {
                String choice, choice2;
                if ((reward > 27) && (reward < 64 ) )
@@ -156,7 +156,7 @@ class Equipment extends Enemy
                   if ( choice2 == "yes")
                   {
                      mainChar.setWeapon(weaponLS2);
-                     weaponDamage = 11;
+                     mainChar.weaponDamage = 11;
                   }
                }
                if ((reward > 64) && (reward < 100 ) )
@@ -172,7 +172,7 @@ class Equipment extends Enemy
                   if ( choice2 == "yes")
                   {
                      mainChar.setWeapon(weaponLS3);
-                     weaponDamage = 20;
+                     mainChar.weaponDamage = 20;
                   }
                }
                if (reward == 100 )
@@ -188,14 +188,14 @@ class Equipment extends Enemy
                   if ( choice2 == "yes")
                   {
                      mainChar.setWeapon(weaponLS4);
-                     weaponDamage = 1000;
+                     mainChar.weaponDamage = 1000;
                   }
                }
             }
          }
          else if ((mainChar.getFighterClass()) == "Greatsword" )
          { 
-            if ((floor == 1) || (floor !=1 && ((reward > 15) && (reward < 28) )))
+            if ((getFloor() == 1) || (getFloor() !=1 && ((reward > 15) && (reward < 28) )))
             {
                System.out.println("You have picked up the " + weaponGS1 + ". This item can deal  8 damage. Do you want to equip it?");
                String choice, choice2;
@@ -208,10 +208,10 @@ class Equipment extends Enemy
                if ( choice2 == "yes")
                {
                   mainChar.setWeapon(weaponGS1);
-                  weaponDamage = 8;
+                  mainChar.weaponDamage = 8;
                }
             }
-            if ((floor == 2) || (floor == 3))
+            if ((getFloor() == 2) || (getFloor() == 3))
             {
                String choice, choice2;
                if ((reward > 27) && (reward < 64 ) )
@@ -227,7 +227,7 @@ class Equipment extends Enemy
                   if ( choice2 == "yes")
                   {
                      mainChar.setWeapon(weaponGS2);
-                     weaponDamage = 11;
+                     mainChar.weaponDamage = 11;
                   }
                }
                if ((reward > 64) && (reward < 100 ) )
@@ -243,7 +243,7 @@ class Equipment extends Enemy
                   if ( choice2 == "yes")
                   {
                      mainChar.setWeapon(weaponGS3);
-                     weaponDamage = 20;
+                     mainChar.weaponDamage = 20;
                   }
                }
                if (reward == 100 )
@@ -259,14 +259,14 @@ class Equipment extends Enemy
                   if ( choice2 == "yes")
                   {
                      mainChar.setWeapon(weaponGS4);
-                     weaponDamage = 1000;
+                     mainChar.weaponDamage = 1000;
                   }
                }
             }
          }
          else if ((mainChar.getFighterClass()) == "Dual Axe Wielder" )
          { 
-            if ((floor == 1) || (floor !=1 && ((reward > 15) && (reward < 28) )))
+            if ((getFloor() == 1) || (getFloor() !=1 && ((reward > 15) && (reward < 28) )))
             {
                System.out.println("You have picked up the " + weaponDA1 + ". This item can deal  8 damage. Do you want to equip it?");
                String choice, choice2;
@@ -279,10 +279,10 @@ class Equipment extends Enemy
                if ( choice2 == "yes")
                {
                   mainChar.setWeapon(weaponDA1);
-                  weaponDamage = 8 * 2;
+                  mainChar.weaponDamage = 8 * 2;
                }
             }
-            if ((floor == 2) || (floor == 3))
+            if ((getFloor() == 2) || (getFloor() == 3))
             {
                String choice, choice2;
                if ((reward > 27) && (reward < 64 ) )
@@ -298,7 +298,7 @@ class Equipment extends Enemy
                   if ( choice2 == "yes")
                   {
                      mainChar.setWeapon(weaponDA2);
-                     weaponDamage = 11 * 2;
+                     mainChar.weaponDamage = 11 * 2;
                   }
                }
                if ((reward > 64) && (reward < 100 ) )
@@ -314,7 +314,7 @@ class Equipment extends Enemy
                   if ( choice2 == "yes")
                   {
                      mainChar.setWeapon(weaponDA3);
-                     weaponDamage = 20 * 2;
+                     mainChar.weaponDamage = 20 * 2;
                   }
                }
                if (reward == 100 )
@@ -330,14 +330,14 @@ class Equipment extends Enemy
                   if ( choice2 == "yes")
                   {
                      mainChar.setWeapon(weaponDA4);
-                     weaponDamage = 1000;
+                     mainChar.weaponDamage = 1000;
                   }
                }
             }
          }
          else 
          { 
-            if ((floor == 1) || (floor !=1 && ((reward > 15) && (reward < 28) )))
+            if ((getFloor() == 1) || (getFloor() !=1 && ((reward > 15) && (reward < 28) )))
             {
                System.out.println("You have picked up the " + weaponS1 + ". This item can deal  8 damage. Do you want to equip it?");
                String choice, choice2;
@@ -350,10 +350,10 @@ class Equipment extends Enemy
                if ( choice2 == "yes")
                {
                   mainChar.setWeapon(weaponS1);
-                  weaponDamage = 8;
+                  mainChar.weaponDamage = 8;
                }
             }
-            if ((floor == 2) || (floor == 3))
+            if ((getFloor() == 2) || (getFloor() == 3))
             {
                String choice, choice2;
                if ((reward > 27) && (reward < 64 ) )
@@ -369,7 +369,7 @@ class Equipment extends Enemy
                   if ( choice2 == "yes")
                   {
                      mainChar.setWeapon(weaponS2);
-                     weaponDamage = 11;
+                     mainChar.weaponDamage = 11;
                   }
                }
                if ((reward > 64) && (reward < 100 ) )
@@ -385,7 +385,7 @@ class Equipment extends Enemy
                   if ( choice2 == "yes")
                   {
                      mainChar.setWeapon(weaponS3);
-                     weaponDamage = 20;
+                     mainChar.weaponDamage = 20;
                   }
                }
                if (reward == 100 )
@@ -401,7 +401,7 @@ class Equipment extends Enemy
                   if ( choice2 == "yes")
                   {
                      mainChar.setWeapon(weaponS4);
-                     weaponDamage = 1000;
+                     mainChar.weaponDamage = 1000;
                   }
                }
             }
@@ -419,7 +419,7 @@ class Equipment extends Enemy
          System.out.println("Bad luck... you picked up the " + potion1 + ", it's of no use");
          return;
       }
-      if ((reward > 103 ) && (reward < 107 ))
+      else if ((reward > 103 ) && (reward < 107 ))
       {
          System.out.println("You have picked up the " + potion2 + ". This item can heal 8 damage. Do you want to use it?");
          do 
@@ -431,7 +431,7 @@ class Equipment extends Enemy
                
          if (choice2 == "yes")
          {
-            mainChar.setHealth(mainChar.getHealth() + 8);
+         usePotion(potion2, mainChar);
          }
          else if (choice2 == "no")
          {
@@ -453,7 +453,7 @@ class Equipment extends Enemy
             }        
          }
       }
-      if ((reward > 106 ) && (reward < 109 ))
+      else if ((reward > 106 ) && (reward < 109 ))
       {
          System.out.println("You have picked up the " + potion3 + ". This item can heal 12 damage. Do you want to use it?");
          do 
@@ -465,7 +465,7 @@ class Equipment extends Enemy
                
          if (choice2 == "yes")
          {
-            mainChar.setHealth(mainChar.getHealth() + 12);
+            usePotion(potion3, mainChar);
          }
          else if (choice2 == "no" )
          {
@@ -487,7 +487,7 @@ class Equipment extends Enemy
             }        
          }
       }
-      if ((reward > 108 ) && (reward < 111 ))
+      else
       {
          System.out.println("You have picked up the " + potion4 + ". This item can heal 15 damage. Do you want to use it?");
          do 
@@ -499,7 +499,7 @@ class Equipment extends Enemy
                
          if (choice2 == "yes")
          {
-            mainChar.setHealth(mainChar.getHealth() + 15);
+            usePotion(potion4, mainChar);
          }
          else if (choice2 == "no" )
          {
@@ -511,11 +511,10 @@ class Equipment extends Enemy
                
             if (choice2 == "yes")
             {
-               inventory = new ArrayList<String>(1);
                inventory.add(tracker, potion4);
                tracker++;
             }
-            else 
+          else 
             {
                return;
             }        
@@ -523,9 +522,23 @@ class Equipment extends Enemy
       }
    }
    
-   public void usePotion()
+   public void usePotion(String potionType, Character mainChar)
    {
-       
+    if(potionType.equals(potion1)) {
+       mainChar.setHealth(mainChar.getHealth() + 0);
+    }
+    else if(potionType.equals(potion2))
+    {
+       mainChar.setHealth(mainChar.getHealth() + 8);
+    }
+    else if(potionType.equals(potion3))
+    {
+       mainChar.setHealth(mainChar.getHealth() + 12);
+    }
+    else
+    {
+       mainChar.setHealth(mainChar.getHealth() + 15);
+    }
    }
 }
    
