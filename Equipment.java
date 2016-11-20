@@ -335,7 +335,7 @@ class Equipment extends Enemy
                }
             }
          }
-         if ((mainChar.getFighterClass()) == "Scythe" )
+         else 
          { 
             if ((floor == 1) || (floor !=1 && ((reward > 15) && (reward < 28) )))
             {
@@ -411,36 +411,122 @@ class Equipment extends Enemy
    
    public void genPotion(Character mainChar)
    {
-       String choice, choice2;
-       if ((reward > 100 ) && (reward < 104 ))
-               {
-                  System.out.println("You have picked up the " + potion1 + ". This item can heal 9 damage. Do you want to use it?");
-                  do 
-                  {
-                     System.out.println("Please Enter Yes or No");
-                     choice = kb.next();
-                     choice2 = choice.toLowerCase();
-                  }while((choice2 != "yes") || (choice2 != "no"));  
+      String choice, choice2;
+      int tracker = 1;
+      ArrayList<String> inventory = new ArrayList<String>(1);
+      if ((reward > 100 ) && (reward < 104 ))
+      {
+         System.out.println("Bad luck... you picked up the " + potion1 + ", it's of no use");
+         return;
+      }
+      if ((reward > 103 ) && (reward < 107 ))
+      {
+         System.out.println("You have picked up the " + potion2 + ". This item can heal 8 damage. Do you want to use it?");
+         do 
+         {
+            System.out.println("Please Enter Yes or No");
+            choice = kb.next();
+            choice2 = choice.toLowerCase();
+         }while((choice2 != "yes") || (choice2 != "no"));  
                
-                  if (choice2 == "yes")
-                  {
-                      mainChar.setHealth(mainChar.getHealth() + 9);
-                  }
-                  else if (choice2 == "no" )
-                  {
-                      System.out.println("Would you like to store it for later?");;
-                  do{
-                  choice = kb.next();
-                  choice2 = choice.toLowerCase();
-                  }while((choice2 != "yes") || (choice2 != "no"));  
+         if (choice2 == "yes")
+         {
+            mainChar.setHealth(mainChar.getHealth() + 8);
+         }
+         else if (choice2 == "no")
+         {
+            System.out.println("Would you like to store it for later?");;
+            do{
+               choice = kb.next();
+               choice2 = choice.toLowerCase();
+            }while((choice2 != "yes") || (choice2 != "no"));  
                
-                  if ( choice2 == "yes")
-                  {
-                    ArrayList<String> inventory = new ArrayList<String>(1);
-                  }
-               }
+            if (choice2 == "yes")
+            {
+               inventory.add(tracker, potion2);
+               tracker++;
+               System.out.println("The potion " + potion2 + " is stored in slot" + tracker);
+            }
+            else 
+            {
+               return;
+            }        
+         }
+      }
+      if ((reward > 106 ) && (reward < 109 ))
+      {
+         System.out.println("You have picked up the " + potion3 + ". This item can heal 12 damage. Do you want to use it?");
+         do 
+         {
+            System.out.println("Please Enter Yes or No");
+            choice = kb.next();
+            choice2 = choice.toLowerCase();
+         }while((choice2 != "yes") || (choice2 != "no"));  
+               
+         if (choice2 == "yes")
+         {
+            mainChar.setHealth(mainChar.getHealth() + 12);
+         }
+         else if (choice2 == "no" )
+         {
+            System.out.println("Would you like to store it for later?");;
+            do{
+               choice = kb.next();
+               choice2 = choice.toLowerCase();
+            }while((choice2 != "yes") || (choice2 != "no"));  
+               
+            if (choice2 == "yes")
+            {
+               inventory = new ArrayList<String>(1);
+               inventory.add(tracker, potion3);
+               tracker++;
+            }
+            else 
+            {
+               return;
+            }        
+         }
+      }
+      if ((reward > 108 ) && (reward < 111 ))
+      {
+         System.out.println("You have picked up the " + potion4 + ". This item can heal 15 damage. Do you want to use it?");
+         do 
+         {
+            System.out.println("Please Enter Yes or No");
+            choice = kb.next();
+            choice2 = choice.toLowerCase();
+         }while((choice2 != "yes") || (choice2 != "no"));  
+               
+         if (choice2 == "yes")
+         {
+            mainChar.setHealth(mainChar.getHealth() + 15);
+         }
+         else if (choice2 == "no" )
+         {
+            System.out.println("Would you like to store it for later?");;
+            do{
+               choice = kb.next();
+               choice2 = choice.toLowerCase();
+            }while((choice2 != "yes") || (choice2 != "no"));  
+               
+            if (choice2 == "yes")
+            {
+               inventory = new ArrayList<String>(1);
+               inventory.add(tracker, potion4);
+               tracker++;
+            }
+            else 
+            {
+               return;
+            }        
+         }
+      }
    }
-}
+   
+   public void usePotion()
+   {
+       
+   }
 }
    
    
@@ -460,4 +546,4 @@ class Equipment extends Enemy
    small health potion
    spoiled potion
    medium health potion
-   large health potion*/ 
+   large health potion*/
