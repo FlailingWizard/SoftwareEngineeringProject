@@ -4,6 +4,7 @@ public class Battle
 {
     
     Enemy minion = new Enemy();
+    Enemy boss = new Enemy();
     public void battle(Character mainChar)
     {
       if (minion.getFloor() == 1)
@@ -14,7 +15,11 @@ public class Battle
         }
         if (minion.getCountDown() == 0)
         {
-            minion.genBoss();
+            boss.genBoss();
+            if (boss.getEnemyHealth() == 0)
+            {
+                
+            }
         }
       }
 }
