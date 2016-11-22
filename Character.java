@@ -24,6 +24,7 @@ public class Character
          System.out.println("(2) Greatsword");
          System.out.println("(3) Dual Axe Wielder");
          System.out.println("(4) Scythe Wielder");
+          System.out.println("Please enter 1, 2, 3, or 4");
       
          Scanner kb = new Scanner(System.in);
          classNumber = kb.nextInt();
@@ -80,9 +81,9 @@ public class Character
       this.damage = damage;
    }
    
-   public void setHealth(int health)
+   public void setHealth(int newHealth)
    {
-      this.health = health;
+      this.health = newHealth;
    }
    
    public void setFighterClass(String fightClass)

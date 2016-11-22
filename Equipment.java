@@ -35,6 +35,7 @@ class Equipment extends Enemy
    private final String potion4 = "Large Potion";  
    
    Random rando = new Random();
+   ArrayList<String> inventory = new ArrayList<String>(1);
    Scanner kb = new Scanner(System.in);
    
    /* drops a random armor item after minion or boss is killed. Quality of the item
@@ -413,7 +414,6 @@ class Equipment extends Enemy
    {
       String choice, choice2;
       int tracker = 1;
-      ArrayList<String> inventory = new ArrayList<String>(1);
       if ((reward > 100 ) && (reward < 104 ))
       {
          System.out.println("Bad luck... you picked up the " + potion1 + ", it's of no use");
@@ -477,7 +477,6 @@ class Equipment extends Enemy
                
             if (choice2 == "yes")
             {
-               inventory = new ArrayList<String>(1);
                inventory.add(tracker, potion3);
                tracker++;
             }

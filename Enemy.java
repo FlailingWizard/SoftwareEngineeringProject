@@ -24,6 +24,14 @@ class Enemy
    {
        return enemyHealth;
    }
+   public int getEnemyDefence()
+   {
+       return enemyDefence;
+   }
+   public int getEnemyDamage()
+   {
+       return enemyDamage;
+   }
    public void setEnemyHealth(int newHealth)
    {
        enemyHealth = newHealth;
