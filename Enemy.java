@@ -8,10 +8,14 @@ class Enemy
    private int enemyDamage; 
    private int enemyDefence;
    private int floor;
+   private int kingsHealth;
    
    Random rando = new Random();
    private int countDown = rando.nextInt(2) + 3;
-   
+   public int getKingsHealth()
+   {
+	   return kingsHealth;
+   }
    public int getCountDown()
    {
        return countDown;
@@ -97,7 +101,7 @@ class Enemy
       else
       {
          System.out.println("It's the King!!!!!!");
-         enemyHealth = 100;
+         kingsHealth = 100;
          enemyDamage = 23;
          enemyDefence = rando.nextInt(6) + 14;
       }     
