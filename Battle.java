@@ -5,27 +5,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 
-
 public class Battle extends Equipment
 {
-	
    Random rando = new Random();
    Scanner scan = new Scanner(System.in);
    String decision;
+   
    Enemy minion = new Enemy();
-   public void enemyTurn()
-   {
-       
-      int turn = rando.nextInt(2) + 1;
-      if (turn == 1)
-      {
-         decision = "attack";
-      }
-      else 
-      {
-         decision = "defend";
-      }
-   }
    public void battle(Character mainChar)
    {
       if (minion.getCountDown() > 0)
@@ -36,21 +22,26 @@ public class Battle extends Equipment
       {
          minion.genBoss();
       }
+      
       while((mainChar.getHealth() > 0) || (minion.getEnemyHealth() > 0))
       {
          System.out.println("Would you like to (1) attack, (2) defend, or (3) use a healing potion?\n Please enter 1, 2, or 3");
          int choice;
-        // do {
+         
+         do {
+         
          System.out.println("If you don't have healing items, you must enter 1, or 2. THERE IS NO 3 FOR YOU!!!!");
          choice = scan.nextInt();
-         //}while(inventory.isEmpty() == true);
+         
+         }while(inventory.isEmpty() == true);
+         
          //character chooses to attack
-         enemyTurn();
          if(choice == 1)
          {
             if (decision == "defend")
             {
                System.out.println("The minion chose to defend");
+               
                if (minion.getEnemyDefence() < mainChar.getDamage())
                {
                   minion.setEnemyHealth(minion.getEnemyHealth() - mainChar.getDamage() + minion.getEnemyDefence());
@@ -59,14 +50,11 @@ public class Battle extends Equipment
                {
                   System.out.println("The enemy's defence was higher than your attack...");
                }
-               System.out.println("Your health is" + mainChar.getHealth());
             }
-            else if(decision == "attack")
+            else
             {
-            	System.out.println("The minion chose to attack");
-            	minion.setEnemyHealth(minion.getEnemyHealth() - mainChar.getDamage());
-                mainChar.setHealth(mainChar.getHealth() - minion.getEnemyDamage());
-                System.out.println("Your health is" + mainChar.getHealth());
+               minion.setEnemyHealth(minion.getEnemyHealth() - mainChar.getDamage());
+               mainChar.setHealth(mainChar.getHealth() - minion.getEnemyDamage());
             }
          }
          //character chooses to defend
@@ -76,7 +64,7 @@ public class Battle extends Equipment
             {
                System.out.println("You and your enemy chose to defend so you both stare lovingly into each others eyes.");   
             }
-            else if(decision == "attack")
+            else
             {
                if (mainChar.getDefence() < minion.getEnemyDamage())
                {
@@ -110,13 +98,16 @@ public class Battle extends Equipment
                         potion = "Large Potion";
                         break;
                 }
-             }while(inventory.contains(potion));
-             Iterator itr = inventory.iterator();
-             while(itr.hasNext()){
-             if(itr.next().equals(potion))
-             itr.remove();
-             }
-             if (decision == "defend")
+            }while(inventory.contains(potion));
+             
+            Iterator itr = inventory.iterator();
+             
+            while(itr.hasNext()){
+             
+                 if(itr.next().equals(potion))
+                    itr.remove();
+            } 
+            if (decision == "defend")
             {
               
             }
@@ -125,7 +116,19 @@ public class Battle extends Equipment
       
    }
    
-   
+   public void enemyTurn()
+   {
+       
+      int turn = rando.nextInt(1) + 1;
+      if (turn == 1)
+      {
+         decision = "attack";
+      }
+      else 
+      {
+         decision = "defend";
+      }
+   }
 }
 
 
