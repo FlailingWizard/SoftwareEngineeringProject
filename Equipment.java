@@ -539,6 +539,9 @@ class Equipment extends Enemy
        mainChar.setHealth(mainChar.getHealth() + 15);
     }
    }
+
+   
+   
 }
    
    

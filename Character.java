@@ -154,4 +154,25 @@ public class Character
       this.damage = newDamage;
       this.level++;
    }
+   
+   public void usePotion(String potionType)
+   {
+    
+       if(potionType.equals("Spoiled Potion")) 
+       {
+       health+=health;
+       }
+       else if(potionType.equals("Small Potion"))
+       {
+       health+=8;
+       }
+      else if(potionType.equals("Medium Potion"))
+      {
+       health+=12;
+      }
+      else
+      {
+         health+=15;
+      }
+   } 
 }

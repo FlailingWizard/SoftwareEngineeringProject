@@ -13,6 +13,7 @@ public class Battle extends Equipment
    Scanner scan = new Scanner(System.in);
    String decision;
    Enemy minion = new Enemy();
+   int z;
    public void enemyTurn()
    {
        
@@ -118,8 +119,31 @@ public class Battle extends Equipment
              }
              if (decision == "defend")
             {
-              
+             System.out.println("Your opponent chose to defend so you glare at your oppenent and quaff a health potion"); 
+             
+             z = rando.nextInt(5) + 1;
+             if(z < 5)
+             {
+                mainChar.usePotion(potion);
+             }
+             else
+             {
+                 System.out.println("HAHAHA!!!! Your potion is spoiled... it didn't do anything for you.");
+             }
+                 
             }
+             else 
+             {
+             if(z < 5)
+             {
+                mainChar.setHealth(mainChar.getHealth() - minion.getEnemyDamage());
+                mainChar.usePotion(potion);
+             }
+             else
+             {
+                 System.out.println("HAHAHA!!!! Your potion is spoiled... it didn't do anything for you.");
+             }
+             }
          }           
       }
       
@@ -129,4 +153,3 @@ public class Battle extends Equipment
 }
 
 
-// line 103 mainChar.usePotion(potion, mainChar) caused error
