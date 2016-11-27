@@ -12,10 +12,9 @@ public class FallenKings{
 	      while(minion.getKingsHealth() > 0)
 	      {
 	    	battle.battle(mainChar); 
-	    	
-	    	  
-	    	  
-	      }
+                mainChar.setXP(mainChar.getXP() + 0);
+               
+              }
 	     // System.out.println("You have sucessfully beaten the game!!!!!!!!");
 	     
 	      
