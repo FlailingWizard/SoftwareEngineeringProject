@@ -34,7 +34,6 @@ class Equipment extends Enemy
    private final String potion3 = "Medium Potion";
    private final String potion4 = "Large Potion";  
    
-   Equipment equip = new Equipment();
    Random rando = new Random();
    ArrayList<String> inventory = new ArrayList<String>(1);
    Scanner kb = new Scanner(System.in);
@@ -432,7 +431,7 @@ class Equipment extends Enemy
                
          if (choice2 == "yes")
          {
-            usePotion(potion2, mainChar);
+         usePotion(potion2, mainChar);
          }
          else if (choice2 == "no")
          {
@@ -514,7 +513,7 @@ class Equipment extends Enemy
                inventory.add(tracker, potion4);
                tracker++;
             }
-            else 
+          else 
             {
                return;
             }        
@@ -522,47 +521,24 @@ class Equipment extends Enemy
       }
    }
    
-   public void genEquipment(Character mainChar)
-   {
-       int j = rando.nextInt(3) + 1;
-       if (j == 1)
-       {
-           equip.genWeapon(mainChar);
-           equip.genPotion(mainChar);
-       }
-       else if ( j == 2)
-       {
-           equip.genArmor(mainChar);
-           equip.genPotion(mainChar);
-       }
-       else 
-       {
-           equip.genPotion(mainChar);
-       }
-       
-   }
-   
    public void usePotion(String potionType, Character mainChar)
    {
-      if(potionType.equals(potion1)) {
-         mainChar.setHealth(mainChar.getHealth() + 0);
-      }
-      else if(potionType.equals(potion2))
-      {
-         mainChar.setHealth(mainChar.getHealth() + 8);
-      }
-      else if(potionType.equals(potion3))
-      {
-         mainChar.setHealth(mainChar.getHealth() + 12);
-      }
-      else
-      {
-         mainChar.setHealth(mainChar.getHealth() + 15);
-      }
+    if(potionType.equals(potion1)) {
+       mainChar.setHealth(mainChar.getHealth() + 0);
+    }
+    else if(potionType.equals(potion2))
+    {
+       mainChar.setHealth(mainChar.getHealth() + 8);
+    }
+    else if(potionType.equals(potion3))
+    {
+       mainChar.setHealth(mainChar.getHealth() + 12);
+    }
+    else
+    {
+       mainChar.setHealth(mainChar.getHealth() + 15);
+    }
    }
-
-   
-   
 }
    
    
