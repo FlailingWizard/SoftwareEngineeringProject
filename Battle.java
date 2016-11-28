@@ -15,8 +15,6 @@ public class Battle extends Equipment
    String decision;
    Enemy minion = new Enemy();
    int z;
-<<<<<<< HEAD
-=======
    int x = 0;
    private final String potion1 = "Spoiled Potion";
    private final String potion2 = "Small Potion";
@@ -26,7 +24,6 @@ public class Battle extends Equipment
    
    
    
->>>>>>> origin/master
    public void enemyTurn()
    {
        
@@ -56,29 +53,14 @@ public class Battle extends Equipment
     	  {
     		  break;
     	  }
-<<<<<<< HEAD
-         System.out.println("Would you like to (1) attack, (2) defend, or (3) use a healing potion?\n Please enter 1, 2, or 3");
-=======
          System.out.println("\n---------------------------------------------------------------------");
          System.out.println("Would you like to (1) attack, (2) defend, or (3) use a healing potion?\nPlease enter 1, 2, or 3");
->>>>>>> origin/master
          int choice;
         do {
          System.out.println("If you don't have healing items, you must enter 1, or 2. THERE IS NO 3 FOR YOU!!!!");
          choice = scan.nextInt();
-<<<<<<< HEAD
-         if(choice == 1 || choice == 2)
-         {
-        	 break;
-         }
-         }while(inventory.isEmpty() == true);
-         //character chooses to attack
-         enemyTurn();
-         if(choice == 1)
-=======
          System.out.print(inventory);
          if(choice == 1 || choice == 2)
->>>>>>> origin/master
          {
         	 break;
          }
@@ -90,11 +72,7 @@ public class Battle extends Equipment
         {
             if (decision == "defend")
             {
-<<<<<<< HEAD
-               System.out.println("The enemy chose to defend");
-=======
                System.out.println("\nThe enemy chose to defend");
->>>>>>> origin/master
                if (minion.getEnemyDefence() < mainChar.getDamage())
                {
                   minion.setEnemyHealth(minion.getEnemyHealth() - mainChar.getDamage() + minion.getEnemyDefence());
@@ -104,16 +82,6 @@ public class Battle extends Equipment
                {
                   System.out.println("The enemy's defence was higher than your attack...");
                }
-<<<<<<< HEAD
-               System.out.println("Your health is" + mainChar.getHealth());
-            }
-            else if(decision == "attack")
-            {
-            	System.out.println("The enemy chose to attack");
-            	minion.setEnemyHealth(minion.getEnemyHealth() - mainChar.getDamage());
-                mainChar.setHealth(mainChar.getHealth() - minion.getEnemyDamage());
-                System.out.println("Your health is" + mainChar.getHealth());
-=======
                System.out.println("Your health is " + mainChar.getHealth());
             }
             else if(decision == "attack")
@@ -122,7 +90,6 @@ public class Battle extends Equipment
             	minion.setEnemyHealth(minion.getEnemyHealth() - mainChar.getDamage());
                 mainChar.setHealth(mainChar.getHealth() - minion.getEnemyDamage());
                 System.out.println("Your health is " + mainChar.getHealth());
->>>>>>> origin/master
                 System.out.println(minion.getEnemyHealth());
             }
          }
@@ -185,11 +152,7 @@ public class Battle extends Equipment
              }
              if (decision == "defend")
             {
-<<<<<<< HEAD
-             System.out.println("Your opponent chose to defend so you glare at your oppenent and quaff a health potion"); 
-=======
              System.out.println("\nYour opponent chose to defend so you glare at your oppenent and quaff a health potion"); 
->>>>>>> origin/master
              
              z = rando.nextInt(5) + 1;
              if(z < 5)
@@ -198,11 +161,7 @@ public class Battle extends Equipment
              }
              else
              {
-<<<<<<< HEAD
-                 System.out.println("HAHAHA!!!! Your potion is spoiled... it didn't do anything for you.");
-=======
                  System.out.println("\nHAHAHA!!!! Your potion is spoiled... it didn't do anything for you.");
->>>>>>> origin/master
              }
                  
             }
@@ -215,19 +174,13 @@ public class Battle extends Equipment
              }
              else
              {
-<<<<<<< HEAD
-                 System.out.println("HAHAHA!!!! Your potion is spoiled... it didn't do anything for you.");
-=======
                  System.out.println("\nHAHAHA!!!! Your potion is spoiled... it didn't do anything for you.");
->>>>>>> origin/master
              }
              }
          }           
       }
       
    }
-<<<<<<< HEAD
-=======
    public void genPotion(Character mainChar)
    {
       String choice = "";
@@ -383,7 +336,6 @@ public class Battle extends Equipment
        }
        
    }
->>>>>>> origin/master
    
    
 }

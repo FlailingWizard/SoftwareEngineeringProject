@@ -178,11 +178,7 @@ public class Character extends Equipment
          health+=15;
       }
    } 
-<<<<<<< HEAD
-   public void genEquipment(Character mainChar)
-=======
    /*public void genEquipment(Character mainChar)
->>>>>>> origin/master
    {
        int j = rando.nextInt(3) + 1;
        if (j == 1)
@@ -200,11 +196,7 @@ public class Character extends Equipment
            mainChar.genPotion(mainChar);
        }
        
-<<<<<<< HEAD
-   }
-=======
    }*/
    
    
->>>>>>> origin/master
 }
