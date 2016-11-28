@@ -21,6 +21,9 @@ public class Character extends Equipment
   // sets the class of the character and sets the atttributes for the character as well.
    public void setChar()
    {
+       System.out.println("Story Text here.");
+       
+       
       do{
          System.out.println("Please choose a class for your characer.");
          System.out.println("(1) Longsword");

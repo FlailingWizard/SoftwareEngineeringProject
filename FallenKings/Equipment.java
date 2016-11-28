@@ -49,7 +49,7 @@ class Equipment extends Enemy
 	   reward = rando.nextInt(40) + 10;
      
       
-         if (getFloor() == 1)
+         if ((getFloor() == 1) && (mainChar.armorDefence != 2))
          {
             System.out.println("You have picked up the " + armor1 + ". This item can block 2 damage. Do you want to equip it?");
          
@@ -72,8 +72,8 @@ class Equipment extends Enemy
          if ((getFloor() == 2) || (getFloor() == 3))
          {
     
-           // if ((reward > 1) && (reward < 31) )
-           // {
+           if ((reward > 1) && (reward < 31) )
+           {
                System.out.println("You have picked up the " + armor2 + ". This item can block 3 damage. Do you want to equip it?");
                do 
                {
@@ -90,7 +90,7 @@ class Equipment extends Enemy
                   mainChar.setArmor(armor2);
                   mainChar.armorDefence = 3;
                }
-            //}
+            }
              
             if ((reward > 30) && (reward < 49 ) )
             {
@@ -141,12 +141,12 @@ class Equipment extends Enemy
    depends on the floor that the user is on*/
    public void genWeapon(Character mainChar)
    {
-      reward = rando.nextInt(84) + 16;
-      if ((reward > 15) || (reward < 101))
-      {
+      reward = rando.nextInt(40) + 10;
+      
+      
          if ((mainChar.getFighterClass()) == "Longsword" )
          { 
-            if ((getFloor() == 1) || (getFloor() !=1 && ((reward > 15) && (reward < 28) )))
+            if ((getFloor() == 1) && (mainChar.weaponDamage !=8))
             {
                System.out.println("You have picked up the " + weaponLS1 + ". This item can deal  8 damage. Do you want to equip it?");
                String choice = "";
@@ -495,7 +495,7 @@ class Equipment extends Enemy
                }
             }
          }   
-      }
+      
    }
    /*
    public void genPotion(Character mainChar)
