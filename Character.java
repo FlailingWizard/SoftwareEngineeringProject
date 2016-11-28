@@ -1,5 +1,6 @@
 package FallenKings;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Character extends Equipment
@@ -14,6 +15,8 @@ public class Character extends Equipment
    private String weapons;
    private String armor;
    int classNumber = 0;
+   
+  
    
   // sets the class of the character and sets the atttributes for the character as well.
    public void setChar()
@@ -175,7 +178,11 @@ public class Character extends Equipment
          health+=15;
       }
    } 
+<<<<<<< HEAD
    public void genEquipment(Character mainChar)
+=======
+   /*public void genEquipment(Character mainChar)
+>>>>>>> origin/master
    {
        int j = rando.nextInt(3) + 1;
        if (j == 1)
@@ -193,5 +200,11 @@ public class Character extends Equipment
            mainChar.genPotion(mainChar);
        }
        
+<<<<<<< HEAD
    }
+=======
+   }*/
+   
+   
+>>>>>>> origin/master
 }

@@ -84,7 +84,11 @@ class Enemy
    {
       if ((floor == 1) && (countDown ==0))
       { 
+<<<<<<< HEAD
          System.out.println("Drognauf has awoken.");
+=======
+         System.out.println("Drognauf has AWOKEN!!!!!!!!!!!.");
+>>>>>>> origin/master
          enemyHealth = 20;
          enemyDamage = 10;
          enemyDefence = rando.nextInt(3) + 8;
