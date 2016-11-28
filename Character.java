@@ -14,7 +14,6 @@ public class Character
    private String weapons;
    private String armor;
    int classNumber = 0;
-   private int xp = 0;
    
   // sets the class of the character and sets the atttributes for the character as well.
    public void setChar()
@@ -102,11 +101,6 @@ public class Character
       this.level = level;
    }
    
-   public void setXP(int newXP)
-   {
-      this.xp = newXP;
-   }
-   
    public void setWeapon(String weapons)
    {
       this.weapons = weapons;
@@ -142,11 +136,6 @@ public class Character
       return level;
    }
    
-   public int getXP()
-   {
-       return xp;
-   }
-   
    public String getWeapons()
    {
       return weapons;
@@ -159,14 +148,11 @@ public class Character
    //levels up the character increasing their damage and health
    public void level()
    {
-     //------------------
-      {
       int newHealth = this.health + (int)(this.health * .33);
       this.health = newHealth;
       int newDamage = this.damage + (int)(this.damage * .33);
       this.damage = newDamage;
       this.level++;
-      }
    }
    
    public void usePotion(String potionType)
