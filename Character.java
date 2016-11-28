@@ -2,7 +2,7 @@ package FallenKings;
 
 import java.util.Scanner;
 
-public class Character
+public class Character extends Equipment
 {
    private int health; 
    private int damage;
@@ -153,5 +153,45 @@ public class Character
       int newDamage = this.damage + (int)(this.damage * .33);
       this.damage = newDamage;
       this.level++;
+   }
+   
+   public void usePotion(String potionType)
+   {
+    
+       if(potionType.equals("Spoiled Potion")) 
+       {
+       health+=health;
+       }
+       else if(potionType.equals("Small Potion"))
+       {
+       health+=8;
+       }
+      else if(potionType.equals("Medium Potion"))
+      {
+       health+=12;
+      }
+      else
+      {
+         health+=15;
+      }
+   } 
+   public void genEquipment(Character mainChar)
+   {
+       int j = rando.nextInt(3) + 1;
+       if (j == 1)
+       {
+           mainChar.genWeapon(mainChar);
+           mainChar.genPotion(mainChar);
+       }
+       else if ( j == 2)
+       {
+           mainChar.genArmor(mainChar);
+           mainChar.genPotion(mainChar);
+       }
+       else 
+       {
+           mainChar.genPotion(mainChar);
+       }
+       
    }
 }

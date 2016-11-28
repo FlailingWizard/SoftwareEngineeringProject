@@ -5,13 +5,28 @@ import java.util.Random;
 import java.util.Scanner;
 
 
+
 public class Battle extends Equipment
 {
+	
    Random rando = new Random();
    Scanner scan = new Scanner(System.in);
    String decision;
-    
    Enemy minion = new Enemy();
+   int z;
+   public void enemyTurn()
+   {
+       
+      int turn = rando.nextInt(2) + 1;
+      if (turn == 1)
+      {
+         decision = "attack";
+      }
+      else 
+      {
+         decision = "defend";
+      }
+   }
    public void battle(Character mainChar)
    {
       if (minion.getCountDown() > 0)
@@ -24,31 +39,45 @@ public class Battle extends Equipment
       }
       while((mainChar.getHealth() > 0) || (minion.getEnemyHealth() > 0))
       {
+    	  if(minion.getEnemyHealth() <= 0 || mainChar.getHealth() <= 0)
+    	  {
+    		  break;
+    	  }
          System.out.println("Would you like to (1) attack, (2) defend, or (3) use a healing potion?\n Please enter 1, 2, or 3");
          int choice;
-         do {
+        do {
          System.out.println("If you don't have healing items, you must enter 1, or 2. THERE IS NO 3 FOR YOU!!!!");
          choice = scan.nextInt();
+         if(choice == 1 || choice == 2)
+         {
+        	 break;
+         }
          }while(inventory.isEmpty() == true);
          //character chooses to attack
+         enemyTurn();
          if(choice == 1)
          {
             if (decision == "defend")
             {
-               System.out.println("The minion chose to defend");
+               System.out.println("The enemy chose to defend");
                if (minion.getEnemyDefence() < mainChar.getDamage())
                {
                   minion.setEnemyHealth(minion.getEnemyHealth() - mainChar.getDamage() + minion.getEnemyDefence());
+                  System.out.println(minion.getEnemyHealth());
                }
                else
                {
                   System.out.println("The enemy's defence was higher than your attack...");
                }
+               System.out.println("Your health is" + mainChar.getHealth());
             }
-            else
+            else if(decision == "attack")
             {
-               minion.setEnemyHealth(minion.getEnemyHealth() - mainChar.getDamage());
-               mainChar.setHealth(mainChar.getHealth() - minion.getEnemyDamage());
+            	System.out.println("The enemy chose to attack");
+            	minion.setEnemyHealth(minion.getEnemyHealth() - mainChar.getDamage());
+                mainChar.setHealth(mainChar.getHealth() - minion.getEnemyDamage());
+                System.out.println("Your health is" + mainChar.getHealth());
+                System.out.println(minion.getEnemyHealth());
             }
          }
          //character chooses to defend
@@ -58,7 +87,7 @@ public class Battle extends Equipment
             {
                System.out.println("You and your enemy chose to defend so you both stare lovingly into each others eyes.");   
             }
-            else
+            else if(decision == "attack")
             {
                if (mainChar.getDefence() < minion.getEnemyDamage())
                {
@@ -100,27 +129,36 @@ public class Battle extends Equipment
              }
              if (decision == "defend")
             {
-              
+             System.out.println("Your opponent chose to defend so you glare at your oppenent and quaff a health potion"); 
+             
+             z = rando.nextInt(5) + 1;
+             if(z < 5)
+             {
+                mainChar.usePotion(potion);
+             }
+             else
+             {
+                 System.out.println("HAHAHA!!!! Your potion is spoiled... it didn't do anything for you.");
+             }
+                 
             }
+             else 
+             {
+             if(z < 5)
+             {
+                mainChar.setHealth(mainChar.getHealth() - minion.getEnemyDamage());
+                mainChar.usePotion(potion);
+             }
+             else
+             {
+                 System.out.println("HAHAHA!!!! Your potion is spoiled... it didn't do anything for you.");
+             }
+             }
          }           
       }
       
    }
    
-   public void enemyTurn()
-   {
-       
-      int turn = rando.nextInt(1) + 1;
-      if (turn == 1)
-      {
-         decision = "attack";
-      }
-      else 
-      {
-         decision = "defend";
-      }
-   }
+   
 }
 
-
-// line 103 mainChar.usePotion(potion, mainChar) caused error

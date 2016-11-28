@@ -38,33 +38,44 @@ class Equipment extends Enemy
    ArrayList<String> inventory = new ArrayList<String>(1);
    Scanner kb = new Scanner(System.in);
    
+
    /* drops a random armor item after minion or boss is killed. Quality of the item
    is based on what floor the user is on.
    */ 
    public void genArmor(Character mainChar)
    {
-      reward = rando.nextInt(14) + 1;
+	   String choice, yes,no;
+       yes = "yes";
+       no = "no";
+	   reward = rando.nextInt(14) + 1;
       if ((reward > 0) || (reward < 16))
       {
          if ((getFloor() == 1) || (getFloor() !=1 && ((reward > 0) && (reward < 5) )))
          {
             System.out.println("You have picked up the " + armor1 + ". This item can block 2 damage. Do you want to equip it?");
-            String choice, choice2;
+      
+            yes = "yes";
+            no = "no";
+        
             do 
             {
                System.out.println("Please Enter Yes or No");
                choice = kb.next();
-               choice2 = choice.toLowerCase();
-            }while((choice2 != "yes") || (choice2 != "no"));  
-            if ( choice2 == "yes")
+               if(choice.toLowerCase() == yes || choice.toLowerCase() == no){
+            	   break;
+               }
+               //choice2 = choice.toLowerCase();
+            }while((choice.toLowerCase() == yes) || (choice.toLowerCase() == no));  
+            if ( choice == "yes")
             {
+            	System.out.println("get fucked bro");
                mainChar.setArmor(armor1);
                mainChar.armorDefence = 2;
             }
          } 
          if ((getFloor() == 2) || (getFloor() == 3))
          {
-            String choice, choice2;
+    
             if ((reward > 4) && (reward < 11 ) )
             {
                System.out.println("You have picked up the " + armor2 + ". This item can block 3 damage. Do you want to equip it?");
@@ -72,10 +83,12 @@ class Equipment extends Enemy
                {
                   System.out.println("Please Enter Yes or No");
                   choice = kb.next();
-                  choice2 = choice.toLowerCase();
-               }while((choice2 != "yes") || (choice2 != "no"));  
+                  if(choice.toLowerCase() == yes || choice.toLowerCase() == no){
+               	   break;
+                  }
+               }while((choice.toLowerCase() == yes) || (choice.toLowerCase() == no));  
              
-               if ( choice2 == "yes")
+               if ( choice == yes)
                {
                   mainChar.setArmor(armor2);
                   mainChar.armorDefence = 3;
@@ -89,9 +102,9 @@ class Equipment extends Enemy
                {
                   System.out.println("Please Enter Yes or No");
                   choice = kb.next();
-                  choice2 = choice.toLowerCase();
-               }while((choice2 != "yes") || (choice2 != "no"));  
-               if ( choice2 == "yes")
+                  //choice2 = choice.toLowerCase();
+               }while((choice.toLowerCase() == "yes") || (choice.toLowerCase() == "no"));  
+               if ( choice == "yes")
                {
                   mainChar.setArmor(armor3);
                   mainChar.armorDefence = 5;
@@ -104,9 +117,9 @@ class Equipment extends Enemy
                {
                   System.out.println("Please Enter Yes or No");
                   choice = kb.next();
-                  choice2 = choice.toLowerCase();
-               }while((choice2 != "yes") || (choice2 != "no"));  
-               if ( choice2 == "yes")
+                  //choice2 = choice.toLowerCase();
+               }while((choice.toLowerCase() == "yes") || (choice.toLowerCase() == "no"));  
+               if ( choice == "yes")
                {
                   mainChar.setArmor(armor4);
                   mainChar.armorDefence = 8;
@@ -128,14 +141,19 @@ class Equipment extends Enemy
             if ((getFloor() == 1) || (getFloor() !=1 && ((reward > 15) && (reward < 28) )))
             {
                System.out.println("You have picked up the " + weaponLS1 + ". This item can deal  8 damage. Do you want to equip it?");
-               String choice, choice2;
+               String choice, yes, no;
+               yes ="yes";
+               no ="no";
                do 
                {
                   System.out.println("Please Enter Yes or No");
                   choice = kb.next();
-                  choice2 = choice.toLowerCase();
-               }while((choice2 != "yes") || (choice2 != "no"));  
-               if ( choice2 == "yes")
+                  if(choice.toLowerCase() == yes || choice.toLowerCase() == no){
+               	   break;
+                  }
+                  //choice2 = choice.toLowerCase();
+               }while((choice.toLowerCase() == yes) || (choice.toLowerCase() == no));  
+               if ( choice == "yes")
                {
                   mainChar.setWeapon(weaponLS1);
                   mainChar.weaponDamage = 8;
@@ -152,7 +170,7 @@ class Equipment extends Enemy
                      System.out.println("Please Enter Yes or No");
                      choice = kb.next();
                      choice2 = choice.toLowerCase();
-                  }while((choice2 != "yes") || (choice2 != "no"));  
+                  }while((choice2 == "yes") || (choice2 == "no"));  
                
                   if ( choice2 == "yes")
                   {
@@ -168,7 +186,7 @@ class Equipment extends Enemy
                      System.out.println("Please Enter Yes or No");
                      choice = kb.next();
                      choice2 = choice.toLowerCase();
-                  }while((choice2 != "yes") || (choice2 != "no"));  
+                  }while((choice2 == "yes") || (choice2 == "no"));  
                
                   if ( choice2 == "yes")
                   {
@@ -184,7 +202,7 @@ class Equipment extends Enemy
                      System.out.println("Please Enter Yes or No");
                      choice = kb.next();
                      choice2 = choice.toLowerCase();
-                  }while((choice2 != "yes") || (choice2 != "no"));  
+                  }while((choice2 == "yes") || (choice2 == "no"));  
                
                   if ( choice2 == "yes")
                   {
@@ -205,7 +223,7 @@ class Equipment extends Enemy
                   System.out.println("Please Enter Yes or No");
                   choice = kb.next();
                   choice2 = choice.toLowerCase();
-               }while((choice2 != "yes") || (choice2 != "no"));  
+               }while((choice2 == "yes") || (choice2 == "no"));  
                if ( choice2 == "yes")
                {
                   mainChar.setWeapon(weaponGS1);
@@ -239,7 +257,7 @@ class Equipment extends Enemy
                      System.out.println("Please Enter Yes or No");
                      choice = kb.next();
                      choice2 = choice.toLowerCase();
-                  }while((choice2 != "yes") || (choice2 != "no"));  
+                  }while((choice2 == "yes") || (choice2 == "no"));  
                
                   if ( choice2 == "yes")
                   {
@@ -255,7 +273,7 @@ class Equipment extends Enemy
                      System.out.println("Please Enter Yes or No");
                      choice = kb.next();
                      choice2 = choice.toLowerCase();
-                  }while((choice2 != "yes") || (choice2 != "no"));  
+                  }while((choice2 == "yes") || (choice2 == "no"));  
                
                   if ( choice2 == "yes")
                   {
@@ -276,7 +294,7 @@ class Equipment extends Enemy
                   System.out.println("Please Enter Yes or No");
                   choice = kb.next();
                   choice2 = choice.toLowerCase();
-               }while((choice2 != "yes") || (choice2 != "no"));  
+               }while((choice2 == "yes") || (choice2 == "no"));  
                if ( choice2 == "yes")
                {
                   mainChar.setWeapon(weaponDA1);
@@ -294,7 +312,7 @@ class Equipment extends Enemy
                      System.out.println("Please Enter Yes or No");
                      choice = kb.next();
                      choice2 = choice.toLowerCase();
-                  }while((choice2 != "yes") || (choice2 != "no"));  
+                  }while((choice2 == "yes") || (choice2 == "no"));  
                
                   if ( choice2 == "yes")
                   {
@@ -310,7 +328,7 @@ class Equipment extends Enemy
                      System.out.println("Please Enter Yes or No");
                      choice = kb.next();
                      choice2 = choice.toLowerCase();
-                  }while((choice2 != "yes") || (choice2 != "no"));  
+                  }while((choice2 == "yes") || (choice2 == "no"));  
                
                   if ( choice2 == "yes")
                   {
@@ -326,7 +344,7 @@ class Equipment extends Enemy
                      System.out.println("Please Enter Yes or No");
                      choice = kb.next();
                      choice2 = choice.toLowerCase();
-                  }while((choice2 != "yes") || (choice2 != "no"));  
+                  }while((choice2 == "yes") || (choice2 == "no"));  
                
                   if ( choice2 == "yes")
                   {
@@ -347,7 +365,7 @@ class Equipment extends Enemy
                   System.out.println("Please Enter Yes or No");
                   choice = kb.next();
                   choice2 = choice.toLowerCase();
-               }while((choice2 != "yes") || (choice2 != "no"));  
+               }while((choice2 == "yes") || (choice2 == "no"));  
                if ( choice2 == "yes")
                {
                   mainChar.setWeapon(weaponS1);
@@ -365,7 +383,7 @@ class Equipment extends Enemy
                      System.out.println("Please Enter Yes or No");
                      choice = kb.next();
                      choice2 = choice.toLowerCase();
-                  }while((choice2 != "yes") || (choice2 != "no"));  
+                  }while((choice2 == "yes") || (choice2 == "no"));  
                
                   if ( choice2 == "yes")
                   {
@@ -381,7 +399,7 @@ class Equipment extends Enemy
                      System.out.println("Please Enter Yes or No");
                      choice = kb.next();
                      choice2 = choice.toLowerCase();
-                  }while((choice2 != "yes") || (choice2 != "no"));  
+                  }while((choice2 == "yes") || (choice2 == "no"));  
                
                   if ( choice2 == "yes")
                   {
@@ -397,7 +415,7 @@ class Equipment extends Enemy
                      System.out.println("Please Enter Yes or No");
                      choice = kb.next();
                      choice2 = choice.toLowerCase();
-                  }while((choice2 != "yes") || (choice2 != "no"));  
+                  }while((choice2 == "yes") || (choice2 == "no"));  
                
                   if ( choice2 == "yes")
                   {
@@ -425,9 +443,9 @@ class Equipment extends Enemy
          do 
          {
             System.out.println("Please Enter Yes or No");
-            choice = kb.next();
+            choice = kb.nextLine();
             choice2 = choice.toLowerCase();
-         }while((choice2 != "yes") || (choice2 != "no"));  
+         }while((choice2 == "yes") || (choice2 == "no"));  
                
          if (choice2 == "yes")
          {
@@ -439,7 +457,7 @@ class Equipment extends Enemy
             do{
                choice = kb.next();
                choice2 = choice.toLowerCase();
-            }while((choice2 != "yes") || (choice2 != "no"));  
+            }while((choice2 == "yes") || (choice2 == "no"));  
                
             if (choice2 == "yes")
             {
@@ -461,7 +479,7 @@ class Equipment extends Enemy
             System.out.println("Please Enter Yes or No");
             choice = kb.next();
             choice2 = choice.toLowerCase();
-         }while((choice2 != "yes") || (choice2 != "no"));  
+         }while((choice2 == "yes") || (choice2 == "no"));  
                
          if (choice2 == "yes")
          {
@@ -473,7 +491,7 @@ class Equipment extends Enemy
             do{
                choice = kb.next();
                choice2 = choice.toLowerCase();
-            }while((choice2 != "yes") || (choice2 != "no"));  
+            }while((choice2 == "yes") || (choice2 == "no"));  
                
             if (choice2 == "yes")
             {
@@ -494,7 +512,7 @@ class Equipment extends Enemy
             System.out.println("Please Enter Yes or No");
             choice = kb.next();
             choice2 = choice.toLowerCase();
-         }while((choice2 != "yes") || (choice2 != "no"));  
+         }while((choice2 == "yes") || (choice2 == "no"));  
                
          if (choice2 == "yes")
          {
@@ -506,7 +524,7 @@ class Equipment extends Enemy
             do{
                choice = kb.next();
                choice2 = choice.toLowerCase();
-            }while((choice2 != "yes") || (choice2 != "no"));  
+            }while((choice2 == "yes") || (choice2 == "no"));  
                
             if (choice2 == "yes")
             {
@@ -521,6 +539,9 @@ class Equipment extends Enemy
       }
    }
    
+
+
+  
    public void usePotion(String potionType, Character mainChar)
    {
     if(potionType.equals(potion1)) {
