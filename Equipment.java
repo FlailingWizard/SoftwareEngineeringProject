@@ -46,10 +46,10 @@ class Equipment extends Enemy
    {
 	   String choice = "";
        
-	   reward = rando.nextInt(14) + 25;
-      if ((reward > 0) || (reward < 16))
-      {
-         if ((getFloor() == 1) || (getFloor() !=1 && ((reward > 0) && (reward < 5) )))
+	   reward = rando.nextInt(40) + 10;
+     
+      
+         if (getFloor() == 1)
          {
             System.out.println("You have picked up the " + armor1 + ". This item can block 2 damage. Do you want to equip it?");
          
@@ -72,14 +72,15 @@ class Equipment extends Enemy
          if ((getFloor() == 2) || (getFloor() == 3))
          {
     
-            if ((reward > 4) && (reward < 11 ) )
-            {
+           // if ((reward > 1) && (reward < 31) )
+           // {
                System.out.println("You have picked up the " + armor2 + ". This item can block 3 damage. Do you want to equip it?");
                do 
                {
                   System.out.println("Please Enter Yes or No");
                   choice = kb.next();
-                  if((choice.equalsIgnoreCase("yes")) || (choice.equalsIgnoreCase("no"))){
+                  if((choice.equalsIgnoreCase("yes")) || (choice.equalsIgnoreCase("no")))
+                  {
                	   break;
                   }
                }while((!choice.equalsIgnoreCase("yes")) || (!choice.equalsIgnoreCase("no")));  
@@ -89,9 +90,9 @@ class Equipment extends Enemy
                   mainChar.setArmor(armor2);
                   mainChar.armorDefence = 3;
                }
-            }
+            //}
              
-            if ((reward > 10) && (reward < 15 ) )
+            if ((reward > 30) && (reward < 49 ) )
             {
                System.out.println("You have picked up the " + armor3 + ". This item can block 5 damage. Do you want to equip it?");
                do 
@@ -112,7 +113,7 @@ class Equipment extends Enemy
                   mainChar.armorDefence = 5;
                }
             }
-            if (reward == 15 )
+            if (reward == 49)
             {
                System.out.println("You have picked up the " + armor4 + ". This item can block 8 damage. Do you want to equip it?");
                do 
@@ -133,7 +134,7 @@ class Equipment extends Enemy
                }
             }
          }
-      }
+      
    }
    
    /*Generates a weapon after the death of a Minion or Boss. Quality of weapon
