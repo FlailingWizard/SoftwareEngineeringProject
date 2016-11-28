@@ -7,11 +7,17 @@ class Enemy
    private int enemyHealth;
    private int enemyDamage; 
    private int enemyDefence;
-   private int floor;
+   private int floor = 1;
+   private int kingsHealth = 100;
+   
    
    Random rando = new Random();
    private int countDown = rando.nextInt(2) + 3;
-   
+   private int tempCountDown;
+   public int getKingsHealth() {
+		
+		return kingsHealth;
+	}
    public int getCountDown()
    {
        return countDown;
@@ -51,9 +57,9 @@ class Enemy
       if (floor == 1)
       {
          System.out.println("You have run into one of the king's minions.");
-         enemyHealth = rando.nextInt(20) + 10;
-         enemyDamage = rando.nextInt(10) + 5;
-         enemyDefence = rando.nextInt(6);
+         enemyHealth = rando.nextInt(2) + 5;
+         enemyDamage = rando.nextInt(5) + 5;
+         enemyDefence = rando.nextInt(2);
          countDown--;
       }
       else if (floor == 2)
@@ -79,11 +85,12 @@ class Enemy
       if ((floor == 1) && (countDown ==0))
       { 
          System.out.println("Drognauf has awoken.");
-         enemyHealth = 100;
+         enemyHealth = 20;
          enemyDamage = 10;
          enemyDefence = rando.nextInt(3) + 8;
-         countDown = rando.nextInt(2) + 3;
-         floor++;
+         tempCountDown = rando.nextInt(2) + 3;
+         countDown = tempCountDown;
+         floor = 2;
       }
       else if ((floor == 2) && (countDown == 0))
       {
@@ -91,15 +98,16 @@ class Enemy
          enemyHealth = 150;
          enemyDamage = 10;
          enemyDefence = rando.nextInt(6) + 14;
-         countDown = rando.nextInt(2) + 3;
-         floor++;
+         tempCountDown = rando.nextInt(2) + 3;
+         countDown = tempCountDown;
+         floor = 3;
       }
-      else
+      else if((floor == 3) && (countDown == 0))
       {
          System.out.println("It's the King!!!!!!");
-         enemyHealth = 100;
          enemyDamage = 23;
          enemyDefence = rando.nextInt(6) + 14;
       }     
    }
+
 }

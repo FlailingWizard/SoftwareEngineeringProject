@@ -1,8 +1,9 @@
 package FallenKings;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Character
+public class Character extends Equipment
 {
    private int health; 
    private int damage;
@@ -14,6 +15,8 @@ public class Character
    private String weapons;
    private String armor;
    int classNumber = 0;
+   
+  
    
   // sets the class of the character and sets the atttributes for the character as well.
    public void setChar()
@@ -154,4 +157,46 @@ public class Character
       this.damage = newDamage;
       this.level++;
    }
+   
+   public void usePotion(String potionType)
+   {
+    
+       if(potionType.equals("Spoiled Potion")) 
+       {
+       health+=health;
+       }
+       else if(potionType.equals("Small Potion"))
+       {
+       health+=8;
+       }
+      else if(potionType.equals("Medium Potion"))
+      {
+       health+=12;
+      }
+      else
+      {
+         health+=15;
+      }
+   } 
+   /*public void genEquipment(Character mainChar)
+   {
+       int j = rando.nextInt(3) + 1;
+       if (j == 1)
+       {
+           mainChar.genWeapon(mainChar);
+           mainChar.genPotion(mainChar);
+       }
+       else if ( j == 2)
+       {
+           mainChar.genArmor(mainChar);
+           mainChar.genPotion(mainChar);
+       }
+       else 
+       {
+           mainChar.genPotion(mainChar);
+       }
+       
+   }*/
+   
+   
 }
