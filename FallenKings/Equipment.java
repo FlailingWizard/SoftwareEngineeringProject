@@ -64,7 +64,7 @@ class Equipment extends Enemy
             }while((!choice.equalsIgnoreCase("yes")) || (!choice.equalsIgnoreCase("no")));  
             if (choice.equalsIgnoreCase("yes"))
             {
-            	System.out.println("get fucked bro");
+            	System.out.println("");
                mainChar.setArmor(armor1);
                mainChar.armorDefence = 2;
             }
@@ -497,147 +497,7 @@ class Equipment extends Enemy
          }   
       
    }
-   /*
-   public void genPotion(Character mainChar)
-   {
-      String choice = "";
-      int tracker = 1;
-      int j = rando.nextInt(3) + 1;
-      
-      
-      
-      if (j == 1)
-      {
-         System.out.println("You have picked up the " + potion2 + ". This item can heal 8 damage. Do you want to use it?");
-         do 
-         {
-            System.out.println("Please Enter Yes or No");
-            choice = kb.nextLine();
-            
-            if((choice.equalsIgnoreCase("yes")) || (choice.equalsIgnoreCase("no"))){
-               	   break;
-                  }
-            
-         }while((!choice.equalsIgnoreCase("yes")) || (!choice.equalsIgnoreCase("no"))); 
-               
-         if (choice.equalsIgnoreCase("yes"))
-         {
-         usePotion(potion2, mainChar);
-         }
-         else if (choice.equalsIgnoreCase("no"))
-         {
-            System.out.println("Would you like to store it for later?");;
-            do{
-               choice = kb.next();
-               
-               if((choice.equalsIgnoreCase("yes")) || (choice.equalsIgnoreCase("no"))){
-                        break;
-                    }
-              
-            }while((!choice.equalsIgnoreCase("yes")) || (!choice.equalsIgnoreCase("no")));
-               
-            if (choice.equalsIgnoreCase("yes"))
-            {
-               inventory.add(potion2);
-               tracker++;
-               System.out.println("The potion " + potion2 + " is stored in slot" + tracker);
-               System.out.print(inventory);
-            }
-            else 
-            {
-               return;
-            }        
-         }
-      }
-      else if (j == 2)
-      {
-         System.out.println("You have picked up the " + potion3 + ". This item can heal 12 damage. Do you want to use it?");
-         do 
-         {
-            System.out.println("Please Enter Yes or No");
-            choice = kb.next();
-            
-            if((choice.equalsIgnoreCase("yes")) || (choice.equalsIgnoreCase("no"))){
-                        break;
-                    }
-            
-         }while((!choice.equalsIgnoreCase("yes")) || (!choice.equalsIgnoreCase("no")));
-               
-         if (choice.equalsIgnoreCase("yes"))
-         {
-            usePotion(potion3, mainChar);
-         }
-         else if (choice.equalsIgnoreCase("no"))
-         {
-            System.out.println("Would you like to store it for later?");;
-            do{
-               choice = kb.next();
-               
-               if((choice.equalsIgnoreCase("yes")) || (choice.equalsIgnoreCase("no"))){
-                        break;
-                    }
-              
-            }while((!choice.equalsIgnoreCase("yes")) || (!choice.equalsIgnoreCase("no")));
-               
-            if (choice.equalsIgnoreCase("yes"))
-            {
-               inventory.add(potion3);
-               tracker++;
-               System.out.print(inventory);
-            }
-            else 
-            {
-               return;
-            }        
-         }
-      }
-      else if(j == 3)
-      {
-         System.out.println("You have picked up the " + potion4 + ". This item can heal 15 damage. Do you want to use it?");
-         do 
-         {
-            System.out.println("Please Enter Yes or No");
-            choice = kb.next();
-            
-            if((choice.equalsIgnoreCase("yes")) || (choice.equalsIgnoreCase("no"))){
-               	   break;
-                  }
-           
-         }while((!choice.equalsIgnoreCase("yes")) || (!choice.equalsIgnoreCase("no")));
-               
-         if (choice.equalsIgnoreCase("yes"))
-         {
-            usePotion(potion4, mainChar);
-         }
-         else if (choice.equalsIgnoreCase("no"))
-         {
-            System.out.println("Would you like to store it for later?");;
-            do{
-               choice = kb.next();
-               
-               if((choice.equalsIgnoreCase("yes")) || (choice.equalsIgnoreCase("no"))){
-                        break;
-                    }
-              
-            }while((!choice.equalsIgnoreCase("yes")) || (!choice.equalsIgnoreCase("no")));
-               
-            if (choice.equalsIgnoreCase("yes"))
-            {
-               inventory.add(potion4);
-               tracker++;
-               System.out.print(inventory);
-            }
-          else 
-            {
-               return;
-            }        
-         }
-      }
-   }*/
-   
 
-
-  
    public void usePotion(String potionType, Character mainChar)
    {
     if(potionType.equals(potion1)) {

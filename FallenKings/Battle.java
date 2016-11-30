@@ -59,7 +59,7 @@ public class Battle extends Equipment
         do {
          System.out.println("If you don't have healing items, you must enter 1, or 2. THERE IS NO 3 FOR YOU!!!!");
          choice = scan.nextInt();
-         System.out.print(inventory);
+         System.out.println("Inventory: " + inventory);
          if(choice == 1 || choice == 2)
          {
         	 break;
@@ -76,7 +76,15 @@ public class Battle extends Equipment
                if (minion.getEnemyDefence() < mainChar.getDamage())
                {
                   minion.setEnemyHealth(minion.getEnemyHealth() - mainChar.getDamage() + minion.getEnemyDefence());
-                  System.out.println(minion.getEnemyHealth());
+                  if(0 > minion.getEnemyHealth())
+                  {
+                      System.out.println("The enemy is dead.");
+                      System.out.println("They may have dropped something.");
+                  }
+                  else
+                  {
+                      System.out.println("The enemies health is " + minion.getEnemyHealth());
+                  }
                }
                else
                {
@@ -90,7 +98,16 @@ public class Battle extends Equipment
             	minion.setEnemyHealth(minion.getEnemyHealth() - mainChar.getDamage());
                 mainChar.setHealth(mainChar.getHealth() - minion.getEnemyDamage());
                 System.out.println("Your health is " + mainChar.getHealth());
-                System.out.println(minion.getEnemyHealth());
+                if(0 > minion.getEnemyHealth())
+                  {
+                      System.out.println("The enemy is dead.");
+                      System.out.println("They may have dropped something.");
+                  }
+                  else
+                  {
+                      System.out.println("The enemies health is " + minion.getEnemyHealth());
+                  }
+                  
             }
          }
          //character chooses to defend
@@ -104,7 +121,9 @@ public class Battle extends Equipment
             {
                if (mainChar.getDefence() < minion.getEnemyDamage())
                {
-                  mainChar.setHealth(mainChar.getHealth() - minion.getEnemyDamage() + mainChar.getDefence());
+                 mainChar.setHealth(mainChar.getHealth() - minion.getEnemyDamage() + mainChar.getDefence());
+                 System.out.println("\nThe enemies attack caused " + (minion.getEnemyDamage() - mainChar.getDefence()) + " damage to you instead of " + minion.getEnemyDamage() + " damage.");
+                  
                }
                else
                {
@@ -118,7 +137,7 @@ public class Battle extends Equipment
              String potion = "";
              System.out.println("\nThese are the potions that you have in your inventory.");
              System.out.println(inventory);
-             System.out.println("Enter 1 for a Small Potion, 2 for a Medium Potion, 3 for a Large Potion.");
+             System.out.println("Enter (1) for a Small Potion (2) for a Medium Potion, or (3) for a Large Potion.");
              do
              {
                 System.out.println("Please make sure the potion you choose is in your inventory.");
@@ -224,7 +243,7 @@ public class Battle extends Equipment
                inventory.add(potion2);
                tracker++;
                System.out.println("The potion " + potion2 + " is stored in slot" + tracker);
-               System.out.print(inventory);
+               System.out.println("Inventory: " + inventory);
             }
             else 
             {
@@ -266,7 +285,7 @@ public class Battle extends Equipment
             {
                inventory.add(potion3);
                tracker++;
-               System.out.print(inventory);
+               System.out.println("Inventory: " + inventory);
             }
             else 
             {
@@ -308,7 +327,7 @@ public class Battle extends Equipment
             {
                inventory.add(potion4);
                tracker++;
-               System.out.print(inventory);
+               System.out.print("Inventory: " + inventory + "\n");
             }
           else 
             {

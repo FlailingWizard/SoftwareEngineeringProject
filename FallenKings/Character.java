@@ -15,6 +15,7 @@ public class Character extends Equipment
    private String weapons;
    private String armor;
    int classNumber = 0;
+   int xp = 0;
    
   
    
@@ -48,7 +49,7 @@ public class Character extends Equipment
             defence = 5;
             weapons = "Wood LongSword and Shield";
             armor = "Leather Helmet, Chestpiece and Pants";
-            System.out.println("You have chosen the " + fighterClass + " class. The " + weapons +  " as well as the \n" + armor + " have been added to your inventory.");
+            System.out.println("You have chosen the " + fighterClass + " class. The " + weapons +  " as well as the \n" + armor + " have been added to your inventory.\n");
             break;
          //GreatSword Class
          case 2:
@@ -58,7 +59,7 @@ public class Character extends Equipment
             defence = 4;
             weapons = "Wood Greatsword";
             armor = "Leather Helmet, Chestpiece and Pants";
-            System.out.println("You have chosen the " + fighterClass + " class. The " + weapons +  " as well as the \n" + armor + " have been added to your inventory.");
+            System.out.println("You have chosen the " + fighterClass + " class. The " + weapons +  " as well as the \n" + armor + " have been added to your inventory.\n");
             break;
          //Dual Axe Class
          case 3:
@@ -68,7 +69,7 @@ public class Character extends Equipment
             defence = 0;
             weapons = "Wood Dual Axes";
             armor = "Leather Helmet, Chestpiece and Pants";
-            System.out.println("You have chosen the " + fighterClass + " class. The " + weapons +  " as well as the \n" + armor + " have been added to your inventory.");
+            System.out.println("You have chosen the " + fighterClass + " class. The " + weapons +  " as well as the \n" + armor + " have been added to your inventory.\n");
             break;
          case 4:
             fighterClass = "Scythe";
@@ -77,7 +78,7 @@ public class Character extends Equipment
             defence = 4;
             weapons = "Wood Scythe";
             armor = "Leather Helmet, Chestpiece and Pants";
-            System.out.println("You have chosen the " + fighterClass + " class. The " + weapons +  " as well as the \n" + armor + " have been added to your inventory.");
+            System.out.println("You have chosen the " + fighterClass + " class. The " + weapons +  " as well as the \n" + armor + " have been added to your inventory.\n");
             break;
       }
    }
@@ -151,14 +152,28 @@ public class Character extends Equipment
    {
       return armor;
    }
+   
+   public int getXP()
+   {
+       return xp;
+   }
+   
    //levels up the character increasing their damage and health
+   public void addXP()
+   {
+       this.xp += 25;
+   }
+   
+   
    public void level()
    {
+       System.out.println("You leved up, your health and damage have increased!");
       int newHealth = this.health + (int)(this.health * .33);
       this.health = newHealth;
       int newDamage = this.damage + (int)(this.damage * .33);
       this.damage = newDamage;
       this.level++;
+      this.xp = 0;
    }
    
    public void usePotion(String potionType)

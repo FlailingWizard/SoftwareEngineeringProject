@@ -56,7 +56,7 @@ class Enemy
        this.floor = floor;
       if (floor == 1)
       {
-         System.out.println("You have run into one of the king's minions.");
+         System.out.println("\nYou have run into one of the king's minions.");
          enemyHealth = rando.nextInt(2) + 5;
          enemyDamage = rando.nextInt(5) + 5;
          enemyDefence = rando.nextInt(2);
@@ -64,13 +64,16 @@ class Enemy
       }
       else if (floor == 2)
       {
+         System.out.println("\nYou have run into a king's soldier.");
          enemyHealth = rando.nextInt(30) + 10;
          enemyDamage = rando.nextInt(15) + 5;
          enemyDefence = rando.nextInt(10);
          countDown--;
       }
-      else 
+      else if (floor == 3)
       {
+         
+         System.out.println("The Royal Guard has spotted you.");
          enemyHealth = rando.nextInt(50) + 10;
          enemyDamage = rando.nextInt(25) + 5;
          enemyDefence = rando.nextInt(15);
@@ -84,7 +87,7 @@ class Enemy
    {
       if ((floor == 1) && (countDown ==0))
       { 
-         System.out.println("Drognauf has AWOKEN!!!!!!!!!!!.");
+         System.out.println("Drognauf has AWOKEN!!!!!!!!!!!");
          enemyHealth = 20;
          enemyDamage = 10;
          enemyDefence = rando.nextInt(3) + 8;
@@ -107,6 +110,8 @@ class Enemy
          System.out.println("It's the King!!!!!!");
          enemyDamage = 23;
          enemyDefence = rando.nextInt(6) + 14;
+         enemyHealth = kingsHealth;
+         floor = 4;
       }     
    }
 

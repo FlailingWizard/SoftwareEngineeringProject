@@ -13,20 +13,28 @@ public class FallenKings{
 	      Enemy minion = new Enemy();
 	      mainChar.setChar();
 	      
-	      while(minion.getKingsHealth() > 0)
+	      while(minion.getFloor() < 4)
 	      {
-	    	
+	    	if (minion.getFloor() == 4)
+                  {
+                      break;
+                  }
 	    	battle.battle(mainChar); 
+                battle.genEquipment(mainChar, battle);
+                mainChar.addXP();
+                if (mainChar.getXP() == 75)
+                {
+                    mainChar.level();
+                }
 	    	  
-	    	  if(mainChar.getHealth() <= 0)
+	    	  
+                if(mainChar.getHealth() <= 0)
 		    	{
 		    		System.out.println("you have died");
 		    		break;
 		    	}
-	    	battle.genEquipment(mainChar, battle);
-	    	  
 	      }
-	     // System.out.println("You have successfully beaten the game!!!!!!!!");
+	     System.out.println("You have successfully beaten the game!!!!!!!!");
 	     
 	      
 	   }
