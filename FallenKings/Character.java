@@ -44,8 +44,8 @@ public class Character extends Equipment
          // LongSword Class
          case 1:
             fighterClass = "Longsword";
-            health = 40;
-            damage = 12;
+            health = 40000;
+            damage = 120;
             defence = 5;
             weapons = "Wood LongSword and Shield";
             armor = "Leather Helmet, Chestpiece and Pants";

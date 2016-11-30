@@ -20,7 +20,7 @@ public class Battle extends Equipment
    private final String potion2 = "Small Potion";
    private final String potion3 = "Medium Potion";
    private final String potion4 = "Large Potion";  
-   ArrayList<String> inventory = new ArrayList<String>(1);
+   ArrayList<String> inventory = new ArrayList<>(1);
    
    
    
@@ -37,7 +37,8 @@ public class Battle extends Equipment
          decision = "defend";
       }
    }
-   public void battle(Character mainChar)
+   
+   public void battle(Character mainChar, Enemy minion)
    {
       if (minion.getCountDown() > 0)
       {
@@ -76,7 +77,7 @@ public class Battle extends Equipment
                if (minion.getEnemyDefence() < mainChar.getDamage())
                {
                   minion.setEnemyHealth(minion.getEnemyHealth() - mainChar.getDamage() + minion.getEnemyDefence());
-                  if(0 > minion.getEnemyHealth())
+                  if(0 >= minion.getEnemyHealth())
                   {
                       System.out.println("The enemy is dead.");
                       System.out.println("They may have dropped something.");
@@ -98,7 +99,7 @@ public class Battle extends Equipment
             	minion.setEnemyHealth(minion.getEnemyHealth() - mainChar.getDamage());
                 mainChar.setHealth(mainChar.getHealth() - minion.getEnemyDamage());
                 System.out.println("Your health is " + mainChar.getHealth());
-                if(0 > minion.getEnemyHealth())
+                if(minion.getEnemyHealth() <= 0)
                   {
                       System.out.println("The enemy is dead.");
                       System.out.println("They may have dropped something.");

@@ -7,7 +7,7 @@ class Enemy
    private int enemyHealth;
    private int enemyDamage; 
    private int enemyDefence;
-   private int floor = 1;
+   private int floor = 3;
    private int kingsHealth = 100;
    
    
@@ -85,7 +85,7 @@ class Enemy
    */
    public void genBoss()
    {
-      if ((floor == 1) && (countDown ==0))
+      if (floor == 1)
       { 
          System.out.println("Drognauf has AWOKEN!!!!!!!!!!!");
          enemyHealth = 20;
@@ -95,7 +95,7 @@ class Enemy
          countDown = tempCountDown;
          floor = 2;
       }
-      else if ((floor == 2) && (countDown == 0))
+      else if (floor == 2)
       {
          System.out.println("The Chief Commander Rishield has arrived.");
          enemyHealth = 150;
@@ -105,7 +105,7 @@ class Enemy
          countDown = tempCountDown;
          floor = 3;
       }
-      else if((floor == 3) && (countDown == 0))
+      else if (floor == 3)
       {
          System.out.println("It's the King!!!!!!");
          enemyDamage = 23;

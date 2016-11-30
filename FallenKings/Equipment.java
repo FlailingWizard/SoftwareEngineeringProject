@@ -6,9 +6,10 @@ import java.util.ArrayList;
 
 
 
-class Equipment extends Enemy 
+class Equipment
 {
    private int reward;
+   private Enemy enemy = new Enemy();
    private final String armor1 = "Chainmail Helmet, Chestpiece and Pants";
    private final String armor2 = "Iron Helmet, Chestpiece and Pants";
    private final String armor3 = "Steel Helmet, Chestpiece and Pants";
@@ -49,7 +50,7 @@ class Equipment extends Enemy
 	   reward = rando.nextInt(40) + 10;
      
       
-         if ((getFloor() == 1) && (mainChar.armorDefence != 2))
+         if ((enemy.getFloor() == 1) && (mainChar.armorDefence != 2))
          {
             System.out.println("You have picked up the " + armor1 + ". This item can block 2 damage. Do you want to equip it?");
          
@@ -69,7 +70,7 @@ class Equipment extends Enemy
                mainChar.armorDefence = 2;
             }
          } 
-         if ((getFloor() == 2) || (getFloor() == 3))
+         if ((enemy.getFloor() == 2) || (enemy.getFloor() == 3))
          {
     
            if ((reward > 1) && (reward < 31) )
@@ -146,7 +147,7 @@ class Equipment extends Enemy
       
          if ((mainChar.getFighterClass()) == "Longsword" )
          { 
-            if ((getFloor() == 1) && (mainChar.weaponDamage !=8))
+            if ((enemy.getFloor() == 1) && (mainChar.weaponDamage !=8))
             {
                System.out.println("You have picked up the " + weaponLS1 + ". This item can deal  8 damage. Do you want to equip it?");
                String choice = "";
@@ -167,7 +168,7 @@ class Equipment extends Enemy
                   mainChar.weaponDamage = 8;
                }
             }
-            if ((getFloor() == 2) || (getFloor() == 3))
+            if ((enemy.getFloor() == 2) || (enemy.getFloor() == 3))
             {
                String choice;
                if ((reward > 27) && (reward < 64 ) )
@@ -234,7 +235,7 @@ class Equipment extends Enemy
          }
          else if ((mainChar.getFighterClass()) == "Greatsword" )
          { 
-            if ((getFloor() == 1) || (getFloor() !=1 && ((reward > 15) && (reward < 28) )))
+            if ((enemy.getFloor() == 1) || (enemy.getFloor() !=1 && ((reward > 15) && (reward < 28) )))
             {
                System.out.println("You have picked up the " + weaponGS1 + ". This item can deal  8 damage. Do you want to equip it?");
                String choice;
@@ -254,7 +255,7 @@ class Equipment extends Enemy
                   mainChar.weaponDamage = 8;
                }
             }
-            if ((getFloor() == 2) || (getFloor() == 3))
+            if ((enemy.getFloor() == 2) || (enemy.getFloor() == 3))
             {
                String choice;
                if ((reward > 27) && (reward < 64 ) )
@@ -321,7 +322,7 @@ class Equipment extends Enemy
          }
          else if ((mainChar.getFighterClass()) == "Dual Axe Wielder" )
          { 
-            if ((getFloor() == 1) || (getFloor() !=1 && ((reward > 15) && (reward < 28) )))
+            if ((enemy.getFloor() == 1) || (enemy.getFloor() !=1 && ((reward > 15) && (reward < 28) )))
             {
                System.out.println("You have picked up the " + weaponDA1 + ". This item can deal  8 damage. Do you want to equip it?");
                String choice;
@@ -342,7 +343,7 @@ class Equipment extends Enemy
                   mainChar.weaponDamage = 8 * 2;
                }
             }
-            if ((getFloor() == 2) || (getFloor() == 3))
+            if ((enemy.getFloor() == 2) || (enemy.getFloor() == 3))
             {
                String choice;
                if ((reward > 27) && (reward < 64 ) )
@@ -409,7 +410,7 @@ class Equipment extends Enemy
          }
          else 
          { 
-            if ((getFloor() == 1) || (getFloor() !=1 && ((reward > 15) && (reward < 28) )))
+            if ((enemy.getFloor() == 1) || (enemy.getFloor() !=1 && ((reward > 15) && (reward < 28) )))
             {
                System.out.println("You have picked up the " + weaponS1 + ". This item can deal  8 damage. Do you want to equip it?");
                String choice;
@@ -430,7 +431,7 @@ class Equipment extends Enemy
                   mainChar.weaponDamage = 8;
                }
             }
-            if ((getFloor() == 2) || (getFloor() == 3))
+            if ((enemy.getFloor() == 2) || (enemy.getFloor() == 3))
             {
                String choice;
                if ((reward > 27) && (reward < 64 ) )
