@@ -340,7 +340,7 @@ public class Battle extends Equipment
    public void genEquipment(Character mainChar, Battle battle)
    {
        int j = rando.nextInt(3) + 1;
-       if (j == 1)
+           if (j == 1)
        {
            mainChar.genWeapon(mainChar);
            battle.genPotion(mainChar);

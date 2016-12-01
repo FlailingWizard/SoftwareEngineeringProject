@@ -7,13 +7,14 @@ class Enemy
    private int enemyHealth;
    private int enemyDamage; 
    private int enemyDefence;
-   private int floor = 3;
+   private int floor = 1;
    private int kingsHealth = 100;
    
    
    Random rando = new Random();
    private int countDown = rando.nextInt(2) + 3;
    private int tempCountDown;
+
    public int getKingsHealth() {
 		
 		return kingsHealth;
@@ -57,7 +58,7 @@ class Enemy
       if (floor == 1)
       {
          System.out.println("\nYou have run into one of the king's minions.");
-         enemyHealth = rando.nextInt(2) + 5;
+         enemyHealth = rando.nextInt(20) + 5;
          enemyDamage = rando.nextInt(5) + 5;
          enemyDefence = rando.nextInt(2);
          countDown--;

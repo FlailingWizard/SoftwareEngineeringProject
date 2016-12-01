@@ -73,8 +73,8 @@ class Equipment
          if ((enemy.getFloor() == 2) || (enemy.getFloor() == 3))
          {
     
-           if ((reward > 1) && (reward < 31) )
-           {
+            if ((reward > 1) && (reward < 31) && (mainChar.armorDefence != 3))
+            {
                System.out.println("You have picked up the " + armor2 + ". This item can block 3 damage. Do you want to equip it?");
                do 
                {
@@ -93,7 +93,7 @@ class Equipment
                }
             }
              
-            if ((reward > 30) && (reward < 49 ) )
+            if ((reward > 30) && (reward < 49 ) && (mainChar.armorDefence !=5))
             {
                System.out.println("You have picked up the " + armor3 + ". This item can block 5 damage. Do you want to equip it?");
                do 
@@ -147,7 +147,7 @@ class Equipment
       
          if ((mainChar.getFighterClass()) == "Longsword" )
          { 
-            if ((enemy.getFloor() == 1) && (mainChar.weaponDamage !=8))
+            if ((enemy.getFloor() == 1) && (mainChar.weaponDamage != 8))
             {
                System.out.println("You have picked up the " + weaponLS1 + ". This item can deal  8 damage. Do you want to equip it?");
                String choice = "";
@@ -171,7 +171,7 @@ class Equipment
             if ((enemy.getFloor() == 2) || (enemy.getFloor() == 3))
             {
                String choice;
-               if ((reward > 27) && (reward < 64 ) )
+               if ((reward > 10) && (reward < 31 ) && (mainChar.weaponDamage != 11) )
                {
                   System.out.println("You have picked up the " + weaponLS2 + ". This item can deal 14 damage. Do you want to equip it?");
                   do 
@@ -191,7 +191,7 @@ class Equipment
                      mainChar.weaponDamage = 11;
                   }
                }
-               if ((reward > 64) && (reward < 100 ) )
+               if ((reward > 30) && (reward < 49 ) && (mainChar.weaponDamage != 20) )
                {
                   System.out.println("You have picked up the " + weaponLS3 + ". This item can deal 20 damage. Do you want to equip it?");
                   do 
@@ -211,7 +211,7 @@ class Equipment
                      mainChar.weaponDamage = 20;
                   }
                }
-               if (reward == 100 )
+               if (reward == 49 )
                {
                   System.out.println("You have picked up the " + weaponLS4 + ". This item is.... copyrighted and trademarked.... I dont know \n how you got this. Do you want to equip it?");
                   do 
@@ -235,7 +235,7 @@ class Equipment
          }
          else if ((mainChar.getFighterClass()) == "Greatsword" )
          { 
-            if ((enemy.getFloor() == 1) || (enemy.getFloor() !=1 && ((reward > 15) && (reward < 28) )))
+            if ((enemy.getFloor() == 1)  && (mainChar.weaponDamage != 8))
             {
                System.out.println("You have picked up the " + weaponGS1 + ". This item can deal  8 damage. Do you want to equip it?");
                String choice;
@@ -258,7 +258,7 @@ class Equipment
             if ((enemy.getFloor() == 2) || (enemy.getFloor() == 3))
             {
                String choice;
-               if ((reward > 27) && (reward < 64 ) )
+               if ((reward > 10) && (reward < 31) && (mainChar.weaponDamage != 11))
                {
                   System.out.println("You have picked up the " + weaponGS2 + ". This item can deal 14 damage. Do you want to equip it?");
                   do 
@@ -278,7 +278,7 @@ class Equipment
                      mainChar.weaponDamage = 11;
                   }
                }
-               if ((reward > 64) && (reward < 100 ) )
+               if ((reward > 30) && (reward < 49 ) && (mainChar.weaponDamage != 20))
                {
                   System.out.println("You have picked up the " + weaponGS3 + ". This item can deal 20 damage. Do you want to equip it?");
                   do 
@@ -298,7 +298,7 @@ class Equipment
                      mainChar.weaponDamage = 20;
                   }
                }
-               if (reward == 100 )
+               if (reward == 49)
                {
                   System.out.println("You have picked up the " + weaponGS4 + ". This item is.... copyrighted and trademarked.... I dont know \n how you got this. Do you want to equip it?");
                   do 
@@ -322,7 +322,7 @@ class Equipment
          }
          else if ((mainChar.getFighterClass()) == "Dual Axe Wielder" )
          { 
-            if ((enemy.getFloor() == 1) || (enemy.getFloor() !=1 && ((reward > 15) && (reward < 28) )))
+            if ((enemy.getFloor() == 1) && (mainChar.weaponDamage != 16))
             {
                System.out.println("You have picked up the " + weaponDA1 + ". This item can deal  8 damage. Do you want to equip it?");
                String choice;
@@ -346,7 +346,7 @@ class Equipment
             if ((enemy.getFloor() == 2) || (enemy.getFloor() == 3))
             {
                String choice;
-               if ((reward > 27) && (reward < 64 ) )
+               if ((reward > 10) && (reward < 31) && (mainChar.weaponDamage != 22))
                {
                   System.out.println("You have picked up the " + weaponDA2 + ". This item can deal 14 damage. Do you want to equip it?");
                   do 
@@ -366,7 +366,7 @@ class Equipment
                      mainChar.weaponDamage = 11 * 2;
                   }
                }
-               if ((reward > 64) && (reward < 100 ) )
+               if ((reward > 30) && (reward < 49) && (mainChar.weaponDamage != 40))
                {
                   System.out.println("You have picked up the " + weaponDA3 + ". This item can deal 20 damage. Do you want to equip it?");
                   do 
@@ -386,7 +386,7 @@ class Equipment
                      mainChar.weaponDamage = 20 * 2;
                   }
                }
-               if (reward == 100 )
+               if (reward == 49)
                {
                   System.out.println("You have picked up the " + weaponDA4 + ". This item is.... copyrighted and trademarked.... I dont know \n how you got this. Do you want to equip it?");
                   do 
@@ -410,7 +410,7 @@ class Equipment
          }
          else 
          { 
-            if ((enemy.getFloor() == 1) || (enemy.getFloor() !=1 && ((reward > 15) && (reward < 28) )))
+            if ((enemy.getFloor() == 1) && (mainChar.weaponDamage != 8))
             {
                System.out.println("You have picked up the " + weaponS1 + ". This item can deal  8 damage. Do you want to equip it?");
                String choice;
@@ -434,7 +434,7 @@ class Equipment
             if ((enemy.getFloor() == 2) || (enemy.getFloor() == 3))
             {
                String choice;
-               if ((reward > 27) && (reward < 64 ) )
+               if ((reward > 10) && (reward < 31) && (mainChar.weaponDamage != 11) )
                {
                   System.out.println("You have picked up the " + weaponS2 + ". This item can deal 14 damage. Do you want to equip it?");
                   do 
@@ -454,7 +454,7 @@ class Equipment
                      mainChar.weaponDamage = 11;
                   }
                }
-               if ((reward > 64) && (reward < 100 ) )
+               if ((reward > 30) && (reward < 49) && (mainChar.weaponDamage != 20))
                {
                   System.out.println("You have picked up the " + weaponS3 + ". This item can deal 20 damage. Do you want to equip it?");
                   do 
@@ -474,7 +474,7 @@ class Equipment
                      mainChar.weaponDamage = 20;
                   }
                }
-               if (reward == 100 )
+               if (reward == 49)
                {
                   System.out.println("You have picked up the " + weaponS4 + ". This item is.... copyrighted and trademarked.... I dont know \n how you got this. Do you want to equip it?");
                   do 
