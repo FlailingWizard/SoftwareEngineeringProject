@@ -9,16 +9,25 @@ class Enemy
    private int enemyDefence;
    private int floor = 1;
    private int kingsHealth = 100;
+   private int bossOneHealth = 100;
+   private int bossTwoHealth = 150;
    
    
    Random rando = new Random();
    private int countDown = rando.nextInt(2) + 3;
    private int tempCountDown;
-
-   public int getKingsHealth() {
-		
-		return kingsHealth;
-	}
+   public int getKingsHealth()  
+   {
+	return kingsHealth;
+   }
+   public int getBossOneHealth()
+   {
+       return bossOneHealth;
+   }
+   public int getBossTwoHealth()
+   {
+       return bossTwoHealth;
+   }
    public int getCountDown()
    {
        return countDown;
@@ -47,6 +56,18 @@ class Enemy
    {
        enemyDefence = newDefence;
    }
+   public void setFloor(int floor)
+   {
+       this.floor = floor;
+   }
+   public void setBossOneHealth(int health)
+   {
+       bossOneHealth = health;
+   }
+   public void setBossTwoHealth(int health)
+   {
+       bossTwoHealth = health;
+   }
    
    
    /*randomly generates a minion enemy and assigns it a random amount to health,
@@ -58,7 +79,7 @@ class Enemy
       if (floor == 1)
       {
          System.out.println("\nYou have run into one of the king's minions.");
-         enemyHealth = rando.nextInt(20) + 5;
+         enemyHealth = rando.nextInt(2) + 5;
          enemyDamage = rando.nextInt(5) + 5;
          enemyDefence = rando.nextInt(2);
          countDown--;
@@ -89,7 +110,7 @@ class Enemy
       if (floor == 1)
       { 
          System.out.println("Drognauf has AWOKEN!!!!!!!!!!!");
-         enemyHealth = 20;
+         enemyHealth = bossOneHealth;
          enemyDamage = 10;
          enemyDefence = rando.nextInt(3) + 8;
          tempCountDown = rando.nextInt(2) + 3;
@@ -99,7 +120,7 @@ class Enemy
       else if (floor == 2)
       {
          System.out.println("The Chief Commander Rishield has arrived.");
-         enemyHealth = 150;
+         enemyHealth = bossTwoHealth;
          enemyDamage = 10;
          enemyDefence = rando.nextInt(6) + 14;
          tempCountDown = rando.nextInt(2) + 3;

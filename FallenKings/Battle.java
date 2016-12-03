@@ -1,13 +1,12 @@
 package FallenKings;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
 
 
 
-public class Battle extends Equipment
+public class Battle 
 {
 	
    Random rando = new Random();
@@ -16,13 +15,22 @@ public class Battle extends Equipment
    Enemy minion = new Enemy();
    int z;
    int x = 0;
+   int y = 0;
+   int choice;
    private final String potion1 = "Spoiled Potion";
    private final String potion2 = "Small Potion";
    private final String potion3 = "Medium Potion";
    private final String potion4 = "Large Potion";  
    ArrayList<String> inventory = new ArrayList<>(1);
    
-   
+   public int getY()
+   {
+     return y;
+   }
+   public void setY(int y)
+   {
+       this.y = y;
+   }
    
    public void enemyTurn()
    {
@@ -55,17 +63,21 @@ public class Battle extends Equipment
     		  break;
     	  }
          System.out.println("\n---------------------------------------------------------------------");
-         System.out.println("Would you like to (1) attack, (2) defend, or (3) use a healing potion?\nPlease enter 1, 2, or 3");
-         int choice;
+         System.out.println("Would you like to (1) attack, (2) defend, or (3) use a healing potion?");
         do {
          System.out.println("If you don't have healing items, you must enter 1, or 2. THERE IS NO 3 FOR YOU!!!!");
-         choice = scan.nextInt();
+         Scanner scan = new Scanner(System.in);
+         /*
+         if(scan.hasNextInt() == true)*/ 
+         //{
+             choice = scan.nextInt();
+         //}
          System.out.println("Inventory: " + inventory);
          if(choice == 1 || choice == 2)
          {
         	 break;
          }
-         }while(inventory.isEmpty());
+         }while((inventory.isEmpty()) );
          
         //character chooses to attack
         enemyTurn();
@@ -74,11 +86,43 @@ public class Battle extends Equipment
             if (decision == "defend")
             {
                System.out.println("\nThe enemy chose to defend");
-               if (minion.getEnemyDefence() < mainChar.getDamage())
+               if (mainChar.getFighterClass() == "Scythe")
+               {
+                   System.out.println("The enemy cannot block your attack, you deal full damage.");
+                   minion.setEnemyHealth(minion.getEnemyHealth() - mainChar.getDamage());
+                   if(0 >= minion.getEnemyHealth())
+                  {
+                      if((minion.getFloor() == 2) && (y == 0))
+                      {
+                          minion.setBossOneHealth(0);
+                          y++;
+                      }
+                      else if ((minion.getFloor() == 3) && (y == 1))
+                      {
+                          minion.setBossTwoHealth(0);
+                          y++;
+                      }
+                      System.out.println("The enemy is dead.");
+                      System.out.println("They may have dropped something.");
+                  }
+                  else
+                  {
+                      System.out.println("The enemies health is " + minion.getEnemyHealth());
+                  }
+               }
+               else if (minion.getEnemyDefence() < mainChar.getDamage())
                {
                   minion.setEnemyHealth(minion.getEnemyHealth() - mainChar.getDamage() + minion.getEnemyDefence());
                   if(0 >= minion.getEnemyHealth())
                   {
+                      if(minion.getFloor() == 2)
+                      {
+                          minion.setBossOneHealth(0);
+                      }
+                      else if (minion.getFloor() == 3)
+                      {
+                          minion.setBossTwoHealth(0);
+                      }
                       System.out.println("The enemy is dead.");
                       System.out.println("They may have dropped something.");
                   }
@@ -215,7 +259,7 @@ public class Battle extends Equipment
          do 
          {
             System.out.println("Please Enter Yes or No");
-            choice = kb.next();
+            choice = scan.next();
             
             if((choice.equalsIgnoreCase("yes")) || (choice.equalsIgnoreCase("no"))){
                	   break;
@@ -225,13 +269,13 @@ public class Battle extends Equipment
                
          if (choice.equalsIgnoreCase("yes"))
          {
-         usePotion(potion2, mainChar);
+         mainChar.usePotion(potion2, mainChar);
          }
          else if (choice.equalsIgnoreCase("no"))
          {
             System.out.println("Would you like to store it for later?");;
             do{
-               choice = kb.next();
+               choice = scan.next();
                
                if((choice.equalsIgnoreCase("yes")) || (choice.equalsIgnoreCase("no"))){
                         break;
@@ -258,7 +302,7 @@ public class Battle extends Equipment
          do 
          {
             System.out.println("Please Enter Yes or No");
-            choice = kb.next();
+            choice = scan.next();
             
             if((choice.equalsIgnoreCase("yes")) || (choice.equalsIgnoreCase("no"))){
                         break;
@@ -268,13 +312,13 @@ public class Battle extends Equipment
                
          if (choice.equalsIgnoreCase("yes"))
          {
-            usePotion(potion3, mainChar);
+            mainChar.usePotion(potion3, mainChar);
          }
          else if (choice.equalsIgnoreCase("no"))
          {
             System.out.println("Would you like to store it for later?");;
             do{
-               choice = kb.next();
+               choice = scan.next();
                
                if((choice.equalsIgnoreCase("yes")) || (choice.equalsIgnoreCase("no"))){
                         break;
@@ -300,7 +344,7 @@ public class Battle extends Equipment
          do 
          {
             System.out.println("Please Enter Yes or No");
-            choice = kb.next();
+            choice = scan.next();
             
             if((choice.equalsIgnoreCase("yes")) || (choice.equalsIgnoreCase("no"))){
                	   break;
@@ -310,13 +354,13 @@ public class Battle extends Equipment
                
          if (choice.equalsIgnoreCase("yes"))
          {
-            usePotion(potion4, mainChar);
+            mainChar.usePotion(potion4, mainChar);
          }
          else if (choice.equalsIgnoreCase("no"))
          {
             System.out.println("Would you like to store it for later?");;
             do{
-               choice = kb.next();
+               choice = scan.next();
                
                if((choice.equalsIgnoreCase("yes")) || (choice.equalsIgnoreCase("no"))){
                         break;
@@ -340,7 +384,7 @@ public class Battle extends Equipment
    public void genEquipment(Character mainChar, Battle battle)
    {
        int j = rando.nextInt(3) + 1;
-           if (j == 1)
+       if (j == 1)
        {
            mainChar.genWeapon(mainChar);
            battle.genPotion(mainChar);
